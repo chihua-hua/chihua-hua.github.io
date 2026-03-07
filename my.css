@@ -1,0 +1,224 @@
+/**
+ * Dina.css
+ */
+
+ /* ------- color palette ------- */
+
+@font-face {                  
+font-family: 'Dina';
+src: url(https://humantooth.neocities.org/fonts/XanhMono-Regular.woff) format('woff');
+font-weight: normal;
+font-style: normal;
+} 
+
+ /* ------- color palette ------- */
+  
+  :root {
+    --pink:#ffc9d2;
+    --rose:#e592bd;
+    --lace:#fff4d8;
+    --cocoa:#816859;
+    --sunset:#ff873d;
+    --peach:#ffb672;
+    --aqua:#bcfffb;
+  }
+
+body {
+    background-image: url(https://i.pinimg.com/originals/74/82/37/748237ee920046ae93af1cc5d4b6912d.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+h1 {
+	font-size: 1.7em;
+	line-height: 1;
+}
+
+ /* ------- pixels ------- */
+
+ .pixel-img {
+	vertical-align: -3px;
+    margin-left: -8px;
+ }
+
+/* ------- profile pic wrapper -------
+
+.prof-pic {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+*/
+/*
+.prof-pic > img {
+    border: 20px solid transparent;
+    border-image-slice: 34 fill;
+    border-image: url(https://solaria.neocities.org/guides/borderimage/ivorylacelarge.png) 20 round;
+    width: 50%;
+    display: block;
+}
+*/
+
+/* ------- name title ------- */
+
+.name-title {
+    position: absolute;    /* sits on top of prof-pic img */
+    bottom: 5%;
+    right: 4%;
+}
+
+.name-title p {
+    font-size: xx-large;
+    font-family: 'Dina', 'Comic Sans MS', Arial;
+    font-weight: bolder;
+    font-style: italic;
+    color: var(--pink);
+    margin: 0;
+
+    text-shadow:
+        -1px -1px 0 black,
+         1px -1px 0 black,
+        -1px  1px 0 black,
+         1px  1px 0 black;
+}
+
+.name-title .pixel-img {
+    border: none;
+    height: 0.9em;
+    display: inline-block;
+}
+
+.prof-box {
+    position: relative;
+    width: 241px;
+    height: 121px;
+    background: white;
+
+    border: 20px solid transparent;
+    border-image-slice: 34 fill;
+    border-image: url(https://solaria.neocities.org/guides/borderimage/ivorylacelarge.png) 20 round;
+
+    padding: 40px;
+    overflow: visible;
+
+    margin-top: 200px;
+    margin-left: 34px;
+}
+
+.crab {
+    position: absolute;
+    right: 0px;   /* moves outside border */
+    top: -120px;    /* head sticks out */
+    width: 320px;
+}
+
+/* scrollbox container */
+
+#scrollbox {
+    position:absolute;
+    left: calc(100% + 40px); /* to the right of prof-box, outside its border */
+    top:0;
+
+    width:400px;
+    height:200px;
+
+    overflow-y:auto;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:opacity .8s ease;
+}
+
+/* visible state */
+
+#scrollbox.show {
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* content */
+
+.scroll-content {
+    font-family: 'Dina','Comic Sans MS', Arial;
+    color: var(--cocoa);
+    padding-right: 10px;
+}
+
+/* glass scrollbar */
+
+#scrollbox::-webkit-scrollbar {
+    width:10px;
+}
+
+#scrollbox::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#scrollbox::-webkit-scrollbar-thumb {
+    background: var(--lace);
+    border: 1px solid var(--lace);
+    border-radius: 10px;
+	
+}
+
+@keyframes jitter {
+    0%, 100% { transform: rotate(-3deg) scale(1); }
+    50%       { transform: rotate(3deg) scale(1.05); }
+}
+
+@keyframes bounce {
+    0%, { transform: translateY(0) rotate(-3deg); }
+    50%,       { transform: translateY(-6px) rotate(3deg); }
+	100% { transform: translateY(-6px) rotate(90deg); }
+	
+}
+
+#scrollClose {
+    position: absolute;
+    left: calc(100% + 413px);
+    top: -35px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s ease;
+
+    animation: jitter 0.8s ease-in-out infinite;
+}
+
+#scrollClose.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#scrollClose:hover {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.dina-pic {
+    border: 1px solid;
+    border-radius: 3px;
+    outline: 1px solid var(--cocoa);
+    outline-offset: 0.5px;
+}
+
+.dina-pic:nth-child(6n+1) { border-color: var(--aqua); }
+.dina-pic:nth-child(6n+2) { border-color: var(--pink); }
+.dina-pic:nth-child(6n+3) { border-color: var(--aqua); }
+.dina-pic:nth-child(6n+4) { border-color: var(--pink); }
+.dina-pic:nth-child(6n+5) { border-color: var(--aqua); }
+.dina-pic:nth-child(6n+6) { border-color: var(--pink); }
+
+/* -------------------------------------------------------- */
+/* MOBILE RESPONSIVE */
+/* -------------------------------------------------------- */
+
+/* CSS Code for devices < 800px */
+@media (max-width: 800px) {
+  body {
+    background-position: left;
+  }
+}
